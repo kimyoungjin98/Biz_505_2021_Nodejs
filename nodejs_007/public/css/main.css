@@ -13,15 +13,15 @@ header,
 table,
 div.btn_box,
 footer {
-  width: 80%;
+  width: 90%;
   margin: 10px auto;
 }
 
 header {
-  background-color: greenyellow;
-  color: white;
+  background-color: rgb(92, 15, 128);
   text-align: center;
   padding: 2rem;
+  color: white;
   text-shadow: 2px 2px 2px black;
 }
 
@@ -38,6 +38,7 @@ tr {
 tr:nth-of-type(odd) {
   background-color: #ccc;
 }
+
 tr:nth-of-type(even) {
   background-color: #eee;
 }
@@ -55,7 +56,7 @@ div.btn_box {
 
 footer {
   text-align: center;
-  background-color: blue;
+  background-color: rgb(179, 179, 179);
   color: white;
   padding: 10px;
 }

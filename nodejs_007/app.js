@@ -4,16 +4,15 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-var app = express();
+var app = express(); // 이거 아래에서 올림
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-const bbsRouter = require("./routes/bbsRouter");
+const bbsRouter = require("./routes/bbsRouter"); // 여기 작성
+const fileRouter = require("./routes/fileRouter");
 
 const sequelize = require("./models/index").sequelize;
-
-// tbl_bbs.js 등에 설정된 정보를 기준으로
-// table이 없으면 table을 자동으로 생성해 준다
+// tbl_bbs.js 등에 설정된 정보를 기준으로 table이 없으면 table을 자동으로 생성해준다.
 sequelize.sync();
 
 // view engine setup
@@ -28,7 +27,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/bbs", bbsRouter);
+app.use("/bbs", bbsRouter); // /bbs로 요청이들어오면 bbsRouter에 보내라
+app.use("/file", fileRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
