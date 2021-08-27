@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: rgb(173, 61, 78);
+  color: white;
+  width: 80%;
+}
+
+table.main {
+  border: 1px solid red;
+  margin: 5px;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+tr.main,
+td.main {
+  border: 1px solid rgb(97, 43, 97);
+}
+
+td.main {
+  padding: 50px;
+}

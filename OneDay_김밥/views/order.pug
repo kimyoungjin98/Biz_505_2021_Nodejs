@@ -1,0 +1,46 @@
+doctype html
+html(lang="ko")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/stylesheets/order.css")
+        title Document
+    body 
+        div.order
+            h3 #{table}
+
+            div.order_list
+            
+            div.product
+                each vo,index in PD
+                    label= vo.p_name
+
+            .btn_order
+            button= "결제하기"
+
+    script.
+        document.querySelector("div.product label").addEventListener("click", (e)=>{
+            const p_name = e.target.textContent;
+            const table = document.querySelector("h3").textContent
+            fetch("/order", {
+                method:"POST",
+                headers:{
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body:JSON.stringify({
+                    p_name : p_name,
+                    table : table,
+                })
+            })
+            .then(res=>res.json())
+            .then(result=>{
+                console.log("됐냐?", result)
+            })
+            
+            
+
+        })
+
+
+        

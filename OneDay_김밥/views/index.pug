@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  h2 김밥나라
+
+  table.main
+    tr.main
+      td.main= "01"
+      td.main= "02"
+      td.main= "03"
+    tr.main
+      td.main= "04"
+      td.main= "05"
+      td.main= "06"
+    tr.main  
+      td.main= "07"
+      td.main= "08"
+      td.main= "09"
+
+    script. 
+      document.querySelector("table.main")
+      .addEventListener("click", (e)=>{
+        const tg = e.target 
+        if(tg.tagName = "TD"){
+          const num = tg.textContent
+          fetch("/", {
+            method:"POST",
+                headers:{
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body:JSON.stringify({
+                    num : num
+                })
+          })
+          .then(result=>{
+            if(result == null){
+              alert("상품정보")
+            }
+            else {
+              alert("새 주문을 시작합니다");
+              document.location.href = "/order?table=" + num;
+            }
+          })
+        }
+
+      })
+
+  
