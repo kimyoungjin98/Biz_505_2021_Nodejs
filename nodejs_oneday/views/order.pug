@@ -7,17 +7,20 @@ html(lang="ko")
         link(rel="stylesheet", href="/stylesheets/order.css")
         title Document
     body 
-        div.order
-            h3 #{table}
 
-            div.order_list
-            
+        div.order_box
+            div.order
+                h3 #{table}
+
+                div.order_list
+
+
+                .btn_order
+                button= "결제하기"
+
             div.product
                 each vo,index in PD
                     label= vo.p_name
-
-            .btn_order
-            button= "결제하기"
 
     script.
         document.querySelector("div.product label").addEventListener("click", (e)=>{

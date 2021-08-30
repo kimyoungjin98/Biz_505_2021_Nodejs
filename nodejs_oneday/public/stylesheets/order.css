@@ -4,7 +4,24 @@
   box-sizing: border-box;
 }
 
+div.order_box {
+  display: flex;
+}
+
 div.order {
   display: flex;
   border: 1px solid red;
+  flex-direction: column;
+  width: 550px;
+}
+
+div.order_list {
+  border: 1px solid black;
+  padding: 100px;
+  width: 500px;
+}
+
+div.product {
+  border: 1px solid skyblue;
+  width: 100%;
 }
