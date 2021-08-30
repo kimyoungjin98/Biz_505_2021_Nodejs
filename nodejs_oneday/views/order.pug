@@ -12,7 +12,7 @@ html(lang="ko")
             div.order
                 h3 #{table}
 
-                div.order_list
+                div#order_list
 
 
                 .btn_order
@@ -37,8 +37,20 @@ html(lang="ko")
                 })
             })
             .then(res=>res.json())
-            .then(result=>{
-                console.log("됐냐?", result)
+            .then(res=>{
+                let div = document.createElement("div")
+                let order_list  = document.getElementById("order_list")
+                let label_name = document.createElement("label")
+                let label_price = document.createElement("label")
+
+
+                label_name.innerText = res.p_name
+                label_price.innerText = res.p_price
+
+                div.append(label_name)
+                div.append(label_price)
+                order_list.append(div)
+
             })
             
             

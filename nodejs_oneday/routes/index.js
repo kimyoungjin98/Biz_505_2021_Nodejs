@@ -9,10 +9,10 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/", function (req, res, next) {
-  const num = req.body.num;
-  tbl_orders.findOne({ where: { o_table: num } }).then((result) => {
+  const table = req.body.table;
+  tbl_orders.findOne({ where: { o_table: table } }).then((result) => {
     console.log(result);
-    res.redirect("/");
+    res.json(result);
   });
 });
 
@@ -28,7 +28,7 @@ router.post("/order", function (req, res, next) {
   const table = req.body.table;
   console.log(p_name);
   tbl_products.findOne({ where: { p_name: p_name } }).then((result) => {
-    res.redirect(`/order?table=${table}`);
+    res.json(result);
   });
 });
 

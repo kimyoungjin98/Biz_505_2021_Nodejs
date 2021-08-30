@@ -22,8 +22,28 @@ block content
       .addEventListener("click", (e)=>{
         const tg = e.target 
         if(tg.tagName = "TD"){
-          const num = tg.textContent
-          document.location.href="/order?table=" + num;
+          const table = tg.textContent
+
+          fetch("/",{
+          method:"POST",
+                headers:{
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body:JSON.stringify({
+                    table : table,
+                })
+            })
+            .then(res=>res.json())
+            .then(res=>{
+              if(res == null){
+                alert("새 주문을 시작합니다")
+                document.location.href="/order?table=" + table;
+              }else{
+                alert("주문있음")
+              }
+            })
+          
+          
         }
       })
 
