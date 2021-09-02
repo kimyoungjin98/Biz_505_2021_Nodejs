@@ -1,61 +1,54 @@
 doctype html
 html(lang="ko")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="/stylesheets/order.css")
-        title Document
-    body 
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="/css/order.css")
+		title Document
+	body
+		div.order_box
+			div.order
+				h3 #{table}
+				div#order_list
+					
+			div.product
+				each vo,index in PD
+					label= vo.p_name
+					label= vo.p_price
+		
+		.btn_order 
+						button.btn_home 처음으로
+						button.btn_cash 현금결제
+						button.btn_card 카드결제
 
-        div.order_box
-            div.order
-                h3 #{table}
-
-                div#order_list
-
-
-                .btn_order
-                button= "결제하기"
-
-            div.product
-                each vo,index in PD
-                    label= vo.p_name
-
-    script.
-        document.querySelector("div.product label").addEventListener("click", (e)=>{
-            const p_name = e.target.textContent;
-            const table = document.querySelector("h3").textContent
-            fetch("/order", {
-                method:"POST",
-                headers:{
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body:JSON.stringify({
-                    p_name : p_name,
-                    table : table,
-                })
-            })
-            .then(res=>res.json())
-            .then(res=>{
-                let div = document.createElement("div")
-                let order_list  = document.getElementById("order_list")
-                let label_name = document.createElement("label")
-                let label_price = document.createElement("label")
-
-
-                label_name.innerText = res.p_name
-                label_price.innerText = res.p_price
-
-                div.append(label_name)
-                div.append(label_price)
-                order_list.append(div)
-
-            })
-            
-            
-
-        })
+	script.
+		document.querySelector("div.product").addEventListener("click", (e)=>{
+			const p_name = e.target.textContent;
+			const table = document.querySelector("h3").textContent
+			fetch("/order", {
+			method:"POST",
+			headers:{
+					'Content-Type': 'application/json;charset=utf-8'
+				},
+				body:JSON.stringify({
+					p_name : p_name,
+					table : table,
+				})
+			})
+			.then(res=>res.json())
+			.then(res=>{
+				let div = document.createElement("div")
+				let order_list  = document.getElementById("order_list")
+				let label_name = document.createElement("label")
+				let label_price = document.createElement("label")				
+				label_name.innerText = res.p_name
+				label_price.innerText = res.p_price				
+				div.append(label_name)
+				div.append(label_price)
+				order_list.append(div)
+			})
+		})
 
 
         

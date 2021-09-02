@@ -23,8 +23,19 @@ table.main {
 tr.main,
 td.main {
   border: 1px solid rgb(97, 43, 97);
+  cursor: pointer;
+  background-color: rgb(173, 61, 78);
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 td.main {
   padding: 50px;
+}
+
+td.main:hover {
+  transition: 0.5s ease;
+  background-color: white;
+  color: gray;
 }
