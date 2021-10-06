@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div.order_box {
+  display: flex;
+}
+
+div.order {
+  display: flex;
+  border: 1px solid gray;
+  flex-direction: column;
+  width: 550px;
+}
+
+div#order_list {
+  border: 1px solid gray;
+  padding: 100px;
+  width: 500px;
+}
+
+div.product {
+  display: flex;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.product label {
+  margin: 30px;
+}
+
+h3 {
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+button {
+  background-color: white;
+  border: 1px solid gray;
+  color: gray;
+  font-size: 20px;
+  width: 150px;
+}
+
+button:hover {
+  transition: 0.5s ease;
+  color: white;
+  background-color: gray;
+  cursor: pointer;
+}
