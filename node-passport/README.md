@@ -6,17 +6,20 @@
 
 ## 인증구조
 
-- 로그인 시도 : 정상사용자인지 검사하는 과정 (id, password)
-- 정상적인 사용자 : passport 발행, accessToken 발행
+- 로그인 시도 : 정상사용자인지 검사하는 과정(id, password)
 
-## dependency
+- 정상적인 사용자 : passport 발행, accessToken 발생
 
-- npm intall mongoose
+## Dependency
+
+- npm install mongoose
 - npm install passport
+- npm install passport-local
 - npm install express-session
 - npm install cors
-- npm install passport-local
+- 여기까지는 이용하기 위한 기본항목들
 
 - npm install passport-kakao
 - npm install passport-google
 - npm install passport-facebook
+- 여기서부터는 원하는 것에 따라 설치여부가 나뉜다

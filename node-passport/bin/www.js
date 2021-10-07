@@ -6,7 +6,7 @@
 
 import app from "../app.js";
 import createDebug from "debug";
-const debug = "node-passport:server";
+const debug = "node-passsport:server";
 import http from "http";
 
 /**
